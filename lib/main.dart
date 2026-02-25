@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'whatsapp_clone/chat_list_screen.dart';
+import 'daraz_clone/ecommerce_home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
 
       debugShowCheckedModeBanner: false,
-      home: ChatListScreen(),
+      home: EcommerceHome(),
     );
   }
 }
