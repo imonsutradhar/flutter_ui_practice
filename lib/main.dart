@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'daraz_clone/ecommerce_home.dart';
+import 'dashboard/dashboard_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
 
       debugShowCheckedModeBanner: false,
-      home: EcommerceHome(),
+      home: DashboardScreen(),
     );
   }
 }
