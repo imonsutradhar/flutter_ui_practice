@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../global_cart.dart';
 
 class ProductDetails extends StatelessWidget {
   final int itemIndex;
@@ -72,9 +73,20 @@ class ProductDetails extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  // এখানে ক্লিক করলে পরে আমরা Cart এ অ্যাড করার লজিক লিখব!
+                  globalCartItems.add({
+                    // এখানে তোমার ওই পেজের আসল প্রোডাক্টের নাম, দাম আর আইকন বসাবে
+                    "name": "Awesome Product",
+                    "price": "\$150",
+                    "icon": Icons.shopping_bag,
+                  });
+
+                  // ২. ইউজারকে একটা কিউট মেসেজ দেখালাম যে প্রোডাক্ট কার্টে চলে গেছে
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("Item $itemIndex Added to Cart!")),
+                    const SnackBar(
+                      content: Text("Product added to cart! 🛒"),
+                      backgroundColor: Colors.green, // সাকসেস বোঝাতে সবুজ রঙ দিলাম
+                      duration: Duration(seconds: 2), // ২ সেকেন্ড পর নিজে নিজে গায়েব হয়ে যাবে
+                    ),
                   );
                 },
                 child: const Text(

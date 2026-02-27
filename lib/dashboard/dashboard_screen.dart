@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatspp/dashboard/profile_screen.dart';
 import '../daraz_clone/ecommerce_home.dart';
+import 'cart_screen.dart';
 
 
 class DashboardScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   final List<Widget> _pages= [
     const EcommerceHome(),
-    const Center(child: Text("🛒 Cart Page", style: TextStyle(fontSize: 30))),
+    const CartScreen(),
     const ProfileScreen(),
   ];
 
@@ -31,12 +32,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
         onTap: (int value) {
           setState(() {
             selectedIndex = value;
-            print("tap $selectedIndex");// আমরা যেই বাটনে ক্লিক করেছি, তার নম্বরটা মেমোরিতে সেভ করলাম
+            print("tap $selectedIndex");
           });
         },
 
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: "Cart"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
