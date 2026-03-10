@@ -22,20 +22,20 @@ class EcommerceHome extends StatelessWidget {
           childAspectRatio: 0.75,
         ),
         itemBuilder: (context, index) {
-
-          // 👇 ২. Card এর ওপর GestureDetector বসিয়ে দিলাম
           return GestureDetector(
             onTap: () {
-              // 🚀 ক্লিক করলেই প্রোডাক্ট ডিটেইলস পেজে নিয়ে যাবে
+              // 🚀 ক্লিক করলেই প্রোডাক্ট ডিটেইলস পেজে আসল নাম আর দাম নিয়ে যাবে!
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ProductDetails(itemIndex: index),
+                  builder: (context) => ProductDetails(
+                    productName: "Smart Watches $index",
+                    productPrice: "\$99",
+                    productIcon: Icons.watch,
+                  ),
                 ),
               );
             },
-
-            // তোমার আগের Card-এর কোড একদম হুবহু নিচে বসে গেল
             child: Card(
               elevation: 4,
               shape: RoundedRectangleBorder(
@@ -64,13 +64,17 @@ class EcommerceHome extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Smart Watches $index",
-                            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis),
+                        Text(
+                          "Smart Watches $index",
+                          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                         const SizedBox(height: 5),
-                        const Text("\$99.00",
-                          style: TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold, fontSize: 14),)
+                        const Text(
+                          "\$99.00",
+                          style: TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold, fontSize: 14),
+                        )
                       ],
                     ),
                   )
@@ -80,6 +84,6 @@ class EcommerceHome extends StatelessWidget {
           );
         },
       ),
-    );
-  }
-}
+    ); // <- GridView শেষ
+  } // <- build ফাংশন শেষ
+} // <- EcommerceHome ক্লাস শেষ
